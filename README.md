@@ -14,7 +14,6 @@ $aws configure
 ```
 
 ## Running the app
-
 ```bash
 #Export
 # export data as json from dynamodb and convert it to batch-write-item format
@@ -24,5 +23,7 @@ $ ./exportData.sh
 #Import
 # Import data using batch-write-item to AWS
 $ ./importData.sh
+
+#please ensure your aws configure is using correct key
 
 ```
