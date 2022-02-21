@@ -8,10 +8,13 @@ echo "finding import script at " $folder_path/ScriptForDataImport
 
 start_time="$(date -u +%s)"
 
+echo "Please enter the region: "
+read -e aws_region_name
+
 #import all data in the folder
 for filename in $folder_path/ScriptForDataImport/*.txt; do
     echo "importing ${filename}"
-    aws dynamodb batch-write-item --request-items file://${filename}
+    aws dynamodb batch-write-item --region $aws_region_name --request-items file://${filename}
 done
 
 
