@@ -2,7 +2,7 @@ echo "**************************************************************************
 echo "Welcome to Dynamodb Data Json Exporter"
 echo "It will export your DYnamodb data to multiple Json"
 echo "Before we started, please check your aws configure and install jq"
-echo "Please enter the table name: "
+echo "Enter the table name: "
 read -e table_name
 
 echo "Do you want to export data from dynamodb? [Y\N]"
@@ -12,8 +12,11 @@ read -e needExport
 if [ $needExport = "Y" ] || [ $needExport = "y" ]
 then
 
-echo "Please enter the region: "
+echo "Enter the AWS region: "
 read -e aws_region_name
+
+echo "Enter the AWS profile: "
+read -e aws_profile
 
 #echo "Please enter the max-items for each json: "
 #because only send up to 25 items in a single BatchWriteItem request
@@ -34,7 +37,7 @@ then
     echo "created folder ${table_name}/data"
     mkdir $table_name/data
 fi
-aws dynamodb scan --table-name $table_name --region $aws_region_name --max-items $max_items --output json > ./$table_name/data/$index.json
+aws dynamodb scan --table-name $table_name --region $aws_region_name --max-items $max_items --output json > ./$table_name/data/$index.json --profile $aws_profile
 
 nextToken=$(cat ./$table_name/data/$index.json | jq '.NextToken')
 #[ ! -z "${nextToken}" ] && echo "not null"
@@ -48,7 +51,7 @@ echo "created ${index} dataset"
   
 while [ ! -z "${nextToken}" ] && [ "${nextToken}" != "null" ]
 do
-  aws dynamodb scan --table-name $table_name --region $aws_region_name --max-items $max_items --starting-token $nextToken --output json > ./$table_name/data/$index.json
+  aws dynamodb scan --table-name $table_name --region $aws_region_name --max-items $max_items --starting-token $nextToken --output json > ./$table_name/data/$index.json  --profile $aws_profile
   nextToken=$(cat ./$table_name/data/$index.json | jq '.NextToken')
   #echo $(cat ./$table_name/data/$index.json | jq '.Items') > ./$table_name/data/$index.json
   ((index+=1))
