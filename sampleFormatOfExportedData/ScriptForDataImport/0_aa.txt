@@ -1,5 +1,5 @@
 {
-  "nestjs-lambda-api-dev-DispOrderItem": [
+  "nestjs-lambda-api-dev": [
     {
       "PutRequest": {
         "Item": {
