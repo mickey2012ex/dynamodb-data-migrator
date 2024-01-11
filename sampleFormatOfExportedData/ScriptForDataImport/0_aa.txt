@@ -1,0 +1,40 @@
+{
+  "nestjs-lambda-api-dev-DispOrderItem": [
+    {
+      "PutRequest": {
+        "Item": {
+          "uuid": {
+            "S": "001"
+          },
+          "AlbumTitle": {
+            "S": "Somewhat Famous"
+          },
+          "Awards": {
+            "N": "2"
+          },
+          "lang": {
+            "S": "en"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "uuid": {
+            "S": "002"
+          },
+          "AlbumTitle": {
+            "S": "test item 2"
+          },
+          "Awards": {
+            "N": "2"
+          },
+          "lang": {
+            "S": "en"
+          }
+        }
+      }
+    }
+  ]
+}

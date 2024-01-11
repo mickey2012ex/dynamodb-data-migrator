@@ -1,0 +1,35 @@
+{
+    "Items": [
+        {
+            "uuid": {
+                "S": "001"
+            },
+            "AlbumTitle": {
+                "S": "Somewhat Famous"
+            },
+            "Awards": {
+                "N": "2"
+            },
+            "lang": {
+                "S": "en"
+            }
+        },
+        {
+            "uuid": {
+                "S": "002"
+            },
+            "AlbumTitle": {
+                "S": "test item 2"
+            },
+            "Awards": {
+                "N": "2"
+            },
+            "lang": {
+                "S": "en"
+            }
+        }
+    ],
+    "Count": 2,
+    "ScannedCount": 2,
+    "ConsumedCapacity": null
+}
