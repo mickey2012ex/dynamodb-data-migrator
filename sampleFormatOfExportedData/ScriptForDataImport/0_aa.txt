@@ -1,5 +1,5 @@
 {
-  "nestjs-lambda-api-dev": [
+  "sampleFormatOfExportedData": [
     {
       "PutRequest": {
         "Item": {
